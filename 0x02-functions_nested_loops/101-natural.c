@@ -18,6 +18,6 @@ int main(void)
 		if ((num % 3 == 0) || (num % 5 == 0))
 			sum += num;
 	}
-	printf("the sum is %d\n", sum);
+	printf("%d\n", sum);
 	return (0);
 }
