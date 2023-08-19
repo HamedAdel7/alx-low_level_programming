@@ -3,6 +3,7 @@
 /**
  * print_triangle -  prints a triangle
  * @size: input number
+ * Return: 0
 */
 
 void print_triangle(int size)
@@ -20,7 +21,7 @@ void print_triangle(int size)
 				if ((trian + space) <= size)
 					_putchar(' ');
 				else
-					_putshar('#');
+					_putchar('#');
 			}
 			_putchar('\n');
 
