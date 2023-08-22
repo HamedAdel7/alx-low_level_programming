@@ -1,13 +1,30 @@
 #include "main.h"
 
 /**
+ * pow - power number
+ * @b: first input
+ * @e: second input
+*/
+
+power(unsigned int b, unsigned int e)
+{
+	unsigned int result;
+
+	while (e != 0)
+	{
+		result *= b;
+		--e
+	}
+}
+
+/**
  * print_number - print an integert
  * @n: input number
 */
 
 void print_number(int n)
 {
-	int a, s, d, f, g;
+	unsigned int num = n, p = 0, i;
 
 	if (n < 0)
 	{
@@ -15,42 +32,18 @@ void print_number(int n)
 		n = -n;
 	}
 
-	g = n % 10;
-	n = (n - n % 10) / 10;
-	f = n % 10;
-	n = (n - n % 10) / 10;
-	d = n % 10;
-	n = (n - n % 10) / 10;
-	s = n % 10;
-	n = (n - n % 10) / 10;
-	a = n % 10;
-
-	if (a > 0)
-	{
-		_putchar(a + 48);
-		_putchar(s + 48);
-		_putchar(d + 48);
-		_putchar(f + 48);
-		_putchar(g + 48);
-	}
-	else if (s > 0)
-	{
-		_putchar(s + 48);
-		_putchar(d + 48);
-		_putchar(f + 48);
-		_putchar(g + 48);
-	}
-	else if (d > 0)
-	{
-		_putchar(d + 48);
-		_putchar(f + 48);
-		_putchar(g + 48);
-	}
-	else if (f > 0)
-	{
-		_putchar(f + 48);
-		_putchar(g + 48);
-	}
+	if (n == 0)
+		_putchar(48);
 	else
-		_putchar(g + 48);
+	{
+		for (i = 9; p == 0; i--)
+			p = num / (power(10, i));
+		i++;
+
+		for (i=i; i != 0; i--)
+		{
+			p = num / (power(10, i));
+			_putchar(p + 48);
+		}
+	}
 }
