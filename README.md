@@ -1,1 +1,1 @@
-the first code by c programming
+0x0A-argc_argv
