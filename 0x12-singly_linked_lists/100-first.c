@@ -1,6 +1,6 @@
 #include "main.h"
 
-void _constructor(void) __attribute__ ((constructor));
+void _constructor(void)__attribute__((constructor));
 
 /**
  * _constructor - before main
