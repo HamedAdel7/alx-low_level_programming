@@ -3,7 +3,7 @@
 #define USAGE "Usage: cp file_from file_to\n"
 #define ERR_NOREAD "Error: can't read from file %s\n"
 #define ERR_NOWRITE "Error: can't write to %s\n"
-#define ERR_NOCLOSE "Error: can't close fd %s\n"
+#define ERR_NOCLOSE "Error: can't close fd %d\n"
 #define PERMISSIONS (S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH)
 
 /**
@@ -32,6 +32,8 @@ int main(int ac, char **av)
 	while ((b = read(from_fd, buf, READ_BUF_SIZE)) > 0)
 		if (write(to_fd, buf, b) != b)
 			dprintf(STDERR_FILENO, ERR_NOWRITE, av[2]), exit(99);
+	if (b == -1)
+		dprintf(STDERR_FILENO, ERR_NOREAD, av[1]), exit(98);
 
 	from_fd = close(from_fd);
 	to_fd = close(to_fd);
