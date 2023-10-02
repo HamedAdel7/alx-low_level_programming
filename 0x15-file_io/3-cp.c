@@ -24,7 +24,7 @@ int main(int ac, char **av)
 	from_fd = open(av[1], O_RDWR, PERMISSIONS);
 	if (from_fd == -1)
 		dprintf(STDERR_FILENO, ERR_NOREAD, av[1]), exit(98);
-	to_fd = open(av[2], O_RDWR | O_CREAT | O_TRUNC | O_APPEND, PERMISSIONS);
+	to_fd = open(av[2], O_WRONLY | O_CREAT | O_TRUNC | O_APPEND, PERMISSIONS);
 	if (to_fd == -1)
 		dprintf(STDERR_FILENO, ERR_NOWRITE, av[2]), exit(99);
 
