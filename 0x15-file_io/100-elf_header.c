@@ -222,7 +222,7 @@ void print_entry(Elf64_Ehdr h)
 	else
 	{
 		i = 0;
-		len = h.e_ident[EI_CLASS] == ELFCLASS32 ? 7 : 3;
+		len = h.e_ident[EI_CLASS] == ELFCLASS64 ? 7 : 3;
 		while (!p[len])
 			len++;
 		printf("%x", p[len++]);
