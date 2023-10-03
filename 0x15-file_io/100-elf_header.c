@@ -76,8 +76,8 @@ void print_version(Elf64_Ehdr h)
 					h.e_ident[EI_VERSION]);
 			break;
 		case EV_NONE:
-			printf("  Version:                           0x";
-			printf("%d", h.e_ident[EI_VERSION]);
+			printf("  Version:                           0x%x",
+					h.e_ident[EI_VERSION]);
 			break;
 		break;
 	}
