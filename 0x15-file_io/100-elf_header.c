@@ -222,12 +222,12 @@ void print_entry(Elf64_Ehdr h)
 	else
 	{
 		i = 0;
-		len = h.e_ident[EI_CLASS] == ELFCLASS64 ? 7 : 3;
-		while (!p[i])
-			i++;
-		printf("%x", p[i++]);
-		for (; i >= 0; i++)
-			printf("%02x", p[i]);
+		len = h.e_ident[EI_CLASS] == ELFCLASS32 ? 7 : 3;
+		while (!p[len])
+			len++;
+		printf("%x", p[len++]);
+		for (; i >= 0; len++)
+			printf("%02x", p[len]);
 		printf("\n");
 	}
 }
